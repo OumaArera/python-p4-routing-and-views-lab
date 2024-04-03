@@ -20,12 +20,13 @@ def print_string(text):
 # Count view
 @app.route('/count/<int:num>')
 def count(num):
-    numbers = '\n'.join(str(i) for i in range(num))
+    numbers = '\n'.join(str(i) for i in range(num + 1))  # Include the upper limit
     return numbers
 
 # Math view
 @app.route('/math/<float:num1>/<string:operation>/<float:num2>')
 def math(num1, operation, num2):
+    result = None
     if operation == '+':
         result = num1 + num2
     elif operation == '-':
